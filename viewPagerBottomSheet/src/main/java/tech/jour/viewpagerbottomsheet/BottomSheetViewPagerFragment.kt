@@ -1,6 +1,5 @@
 package tech.jour.viewpagerbottomsheet
 
-import android.app.Dialog
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
@@ -118,6 +117,7 @@ open class BottomSheetViewPagerFragment : BaseBottomSheetFragment() {
             this.titles = titles
             return this
         }
+
         override fun create(): BottomSheetViewPagerFragment {
             val customBottomSheetDialogFragment = BottomSheetViewPagerFragment()
             customBottomSheetDialogFragment.builder = this

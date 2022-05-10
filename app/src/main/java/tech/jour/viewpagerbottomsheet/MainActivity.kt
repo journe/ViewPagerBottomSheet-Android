@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     fun show2(view: View?) {
 
-        TedBottomPicker.with(this)
+        VPBSBuilder.with(this)
             .setTitles(vpTitles)
             .setFragments(vpItemFragment)
             .setPeekHeight(0.7)

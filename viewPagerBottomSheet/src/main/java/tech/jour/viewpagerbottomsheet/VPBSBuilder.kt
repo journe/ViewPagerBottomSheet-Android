@@ -3,7 +3,7 @@ package tech.jour.viewpagerbottomsheet
 import androidx.appcompat.app.AppCompatActivity
 
 
-object TedBottomPicker : BottomSheetViewPagerFragment() {
+object VPBSBuilder : BottomSheetViewPagerFragment() {
     fun with(activity: AppCompatActivity): Builder {
         return Builder(activity)
     }
