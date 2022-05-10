@@ -26,4 +26,24 @@
         app:layout_constraintTop_toBottomOf="@+id/button"
         tools:ignore="OnClick" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="show3"
+        android:text="弹窗3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="show4"
+        android:text="弹窗4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:ignore="OnClick" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

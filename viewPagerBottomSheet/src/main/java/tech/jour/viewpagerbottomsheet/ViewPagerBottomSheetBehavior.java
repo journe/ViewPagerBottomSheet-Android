@@ -41,6 +41,7 @@ import androidx.core.view.accessibility.AccessibilityViewCommand;
 import androidx.customview.view.AbsSavedState;
 import androidx.customview.widget.ViewDragHelper;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -1300,6 +1301,39 @@ public class ViewPagerBottomSheetBehavior<V extends View> extends CoordinatorLay
             }
             return currentViewPagerChild;
         }
+        if (view instanceof ViewPager2) {
+            ViewPager2 viewPager = (ViewPager2) view;
+            if (isFirstFind) {
+                /*for (int i = 0; i < Objects.requireNonNull(viewPager.getAdapter()).getCount(); i++) {
+                    isScrollViewOnTopMap.put(i, false);
+                }*/
+//                viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//                    @Override
+//                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onPageSelected(int position) {
+//                        currentPagePosition = position;
+//                        nestedScrollingChildRef = new WeakReference<>(findScrollingChild(viewPager.getChildAt(position)));
+//                    }
+//
+//                    @Override
+//                    public void onPageScrollStateChanged(int state) {
+//
+//                    }
+//                });
+                isFirstFind = false;
+            }
+
+            View currentViewPagerChild = viewPager.getChildAt(currentPagePosition);
+            View scrollingChild = findScrollingChild(currentViewPagerChild);
+            if (scrollingChild != null) {
+                return scrollingChild;
+            }
+            return currentViewPagerChild;
+        }
 
         if (view instanceof ViewGroup) {
             ViewGroup group = (ViewGroup) view;
@@ -1734,6 +1768,20 @@ public class ViewPagerBottomSheetBehavior<V extends View> extends CoordinatorLay
         }
         return (ViewPagerBottomSheetBehavior<V>) behavior;
     }
+
+    public static <V extends View> ViewPagerBottomSheetBehavior<V> getBehavior(@NonNull V view) {
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        if (!(params instanceof LayoutParams)) {
+            throw new IllegalArgumentException("The view is not a child of CoordinatorLayout");
+        }
+        CoordinatorLayout.Behavior<?> behavior =
+                ((LayoutParams) params).getBehavior();
+        if (!(behavior instanceof ViewPagerBottomSheetBehavior)) {
+            throw new IllegalArgumentException("The view is not associated with BottomSheetBehavior");
+        }
+        return (ViewPagerBottomSheetBehavior<V>) behavior;
+    }
+
 
     /**
      * Sets whether the BottomSheet should update the accessibility status of its {@link
