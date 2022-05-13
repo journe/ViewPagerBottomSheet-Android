@@ -19,29 +19,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun show(view: View?) {
-        TestViewPager2BottomSheetFragment().show(supportFragmentManager, "TestViewPager2BottomSheetFragment")
+        TestViewPager2BottomSheetFragment().show(
+            supportFragmentManager,
+            "TestViewPager2BottomSheetFragment"
+        )
     }
 
     fun show2(view: View?) {
-        TestViewPagerBottomSheetFragment().show(supportFragmentManager, "TestViewPagerBottomSheetFragment")
-//        VPBSDBuilder.with(this)
-//            .setTitles(vpTitles)
-//            .setFragments(vpItemFragment)
-//            .setPeekHeight(0.7)
-//            .show()
+        TestViewPagerBottomSheetFragment().show(
+            supportFragmentManager,
+            "TestViewPagerBottomSheetFragment"
+        )
     }
 
     fun show3(view: View?) {
-        VP2DialogFragment().apply {
-            fragments = vpItemFragment
-            titles = vpTitles
-        }.show(supportFragmentManager, "VP2DialogFragment")
+        BottomSheetViewPagerFragment().apply {
+            mFragments = vpItemFragment
+            mTitles = vpTitles
+        }.show(supportFragmentManager, "BottomSheetViewPagerFragment")
     }
 
     fun show4(view: View?) {
-        VPDialogFragment().apply {
-            fragments = vpItemFragment
-            titles = vpTitles
-        }.show(supportFragmentManager, "VPDialogFragment")
+        VPBSDBuilder.with(this).apply {
+            setPeekHeight(0.6)
+            setFragments(vpItemFragment)
+            setTitles(vpTitles)
+        }.show()
     }
 }

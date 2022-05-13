@@ -8,6 +8,5 @@ object VPBSDBuilder : BottomSheetViewPagerFragment() {
         return Builder(activity)
     }
 
-    class Builder(activity: AppCompatActivity) :
-        BottomSheetViewPagerFragment.Builder(activity) {}
+    class Builder(activity: AppCompatActivity) : BottomSheetViewPagerFragment.Builder(activity)
 }
