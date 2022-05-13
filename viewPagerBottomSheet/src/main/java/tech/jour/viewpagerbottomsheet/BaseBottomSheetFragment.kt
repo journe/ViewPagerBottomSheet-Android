@@ -27,10 +27,6 @@ open class BaseBottomSheetFragment : BottomSheetDialogFragment() {
                 if (newState == BottomSheetBehavior.STATE_HIDDEN) {
                     dismissAllowingStateLoss()
                 }
-                Log.d("SheetBehaviorCallback",newState.toString())
-//                if (newState == BottomSheetBehavior.STATE_DRAGGING) {//判断为向下拖动行为时，则强制设定状态为展开
-//                    behavior.state = BottomSheetBehavior.STATE_EXPANDED
-//                }
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
@@ -70,21 +66,6 @@ open class BaseBottomSheetFragment : BottomSheetDialogFragment() {
             }
         }
     }
-
-//    override fun setupDialog(dialog: Dialog, style: Int) {
-//        super.setupDialog(dialog, style)
-//        val behavior: CoordinatorLayout.Behavior = layoutParams.getBehavior()
-//        if (behavior is BottomSheetBehavior) {
-//            (behavior as BottomSheetBehavior).setBottomSheetCallback(mBottomSheetBehaviorCallback)
-//            if (builder != null && builder!!.peekHeight > 0) {
-//                (behavior as BottomSheetBehavior).peekHeight = builder!!.peekHeight.toInt()
-//            }
-//        }
-//        if (builder == null) {
-//            dismissAllowingStateLoss()
-//            return
-//        }
-//    }
 
     open fun show(fragmentManager: FragmentManager) {
         val ft: FragmentTransaction = fragmentManager.beginTransaction()

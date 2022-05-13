@@ -6,5 +6,4 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var textView: TextView = itemView.findViewById(R.id.tv_text)
-
 }
