@@ -28,7 +28,7 @@
             android:background="@color/transparent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"
-            app:layout_behavior=".ViewPagerBottomSheetBehavior" />
+            app:layout_behavior="tech.jour.viewpagerbottomsheet.ViewPagerBottomSheetBehavior" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
