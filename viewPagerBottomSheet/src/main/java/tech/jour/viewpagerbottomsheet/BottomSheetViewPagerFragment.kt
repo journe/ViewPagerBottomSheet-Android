@@ -87,6 +87,10 @@ open class BottomSheetViewPagerFragment : BottomSheetDialogFragment() {
         return R.id.tablayout
     }
 
+    open fun setPeekHeight(height: Double) {
+        mPeekHeight = height
+    }
+
     open fun show(fragmentManager: FragmentManager) {
         val ft: FragmentTransaction = fragmentManager.beginTransaction()
         ft.add(this, tag)

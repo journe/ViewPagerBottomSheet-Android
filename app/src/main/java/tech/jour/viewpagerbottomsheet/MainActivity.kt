@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         TestBuilderFragment().apply {
             mFragments = vpItemFragment
             mTitles = vpTitles
+            setPeekHeight(0.7)
         }.show(supportFragmentManager, "TestBuilderFragment")
     }
 }
