@@ -1,4 +1,8 @@
 # ViewPagerBottomSheet
+[![](https://jitpack.io/v/journe/ViewPagerBottomSheet-Android.svg)](https://jitpack.io/#journe/ViewPagerBottomSheet-Android)
+
+
+
 正确地处理`BottomSheet`中`ViewPager`的滑动事件。
 
 最终效果
@@ -111,6 +115,8 @@ Xpop是一个优秀的弹窗库，而且解决了嵌套滑动问题，可是不�
 将以上方法结合，使用`ViewPager`，可以得到一个符合期望的弹窗。
 
 ### 最终结果
+
+![3](image/3.gif)
 
 #### 参考仓库
 
