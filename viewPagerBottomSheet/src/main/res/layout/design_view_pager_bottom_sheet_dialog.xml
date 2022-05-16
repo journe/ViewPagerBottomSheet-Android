@@ -25,6 +25,7 @@
             android:id="@+id/design_bottom_sheet"
             style="?attr/bottomSheetStyle"
             android:layout_width="match_parent"
+            android:background="@color/transparent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"
             app:layout_behavior=".ViewPagerBottomSheetBehavior" />

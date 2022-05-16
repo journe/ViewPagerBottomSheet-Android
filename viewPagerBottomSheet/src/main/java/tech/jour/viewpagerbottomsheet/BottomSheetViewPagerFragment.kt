@@ -1,6 +1,8 @@
 package tech.jour.viewpagerbottomsheet;
 
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -59,9 +61,9 @@ open class BottomSheetViewPagerFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val mRootView = inflater.inflate(R.layout.dialog_vp, container, false)
-        tabLayout = mRootView.findViewById(R.id.tablayout)
-        viewpager = mRootView.findViewById(R.id.viewpager)
+        val mRootView = inflater.inflate(rootView(), container, false)
+        tabLayout = mRootView.findViewById(tabLayoutId())
+        viewpager = mRootView.findViewById(viewpagerId())
         if (builder != null) {
             mFragments = builder!!.fragments
             mTitles = builder!!.titles
@@ -71,6 +73,18 @@ open class BottomSheetViewPagerFragment : BottomSheetDialogFragment() {
         tabLayout.setupWithViewPager(viewpager)
 
         return mRootView
+    }
+
+    open fun rootView(): Int {
+        return R.layout.dialog_vp
+    }
+
+    open fun viewpagerId(): Int {
+        return R.id.viewpager
+    }
+
+    open fun tabLayoutId(): Int {
+        return R.id.tablayout
     }
 
     open fun show(fragmentManager: FragmentManager) {

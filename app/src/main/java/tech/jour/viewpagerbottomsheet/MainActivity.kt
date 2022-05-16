@@ -46,4 +46,11 @@ class MainActivity : AppCompatActivity() {
             setTitles(vpTitles)
         }.show()
     }
+
+    fun show5(view: View?) {
+        TestBuilderFragment().apply {
+            mFragments = vpItemFragment
+            mTitles = vpTitles
+        }.show(supportFragmentManager, "TestBuilderFragment")
+    }
 }
