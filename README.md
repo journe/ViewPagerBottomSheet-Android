@@ -109,3 +109,16 @@ Xpop是一个优秀的弹窗库，而且解决了嵌套滑动问题，可是不�
 ###### 方法3：通过自定义`BottomSheetBehavior`，`BottomSheetDialog`来处理滑动事件
 
 将以上方法结合，使用`ViewPager`，可以得到一个符合期望的弹窗。
+
+### 最终结果
+
+#### 参考仓库
+
+[ZYF99/BottomSheetTest: BottomSheetBehavior+ViewPager冲突解决+回弹效果+速度调节 (github.com)](https://github.com/ZYF99/BottomSheetTest)
+
+[laenger/ViewPagerBottomSheet: Use ViewPagers in Bottom Sheets! (github.com)](https://github.com/laenger/ViewPagerBottomSheet)
+
+[JiangAndroidwork/BottomSheetViewPager (github.com)](https://github.com/JiangAndroidwork/BottomSheetViewPager)
+
+[ParkSangGwon/TedBottomPicker: TedBottomPicker is simple image picker using bottom sheet (github.com)](https://github.com/ParkSangGwon/TedBottomPicker)
+

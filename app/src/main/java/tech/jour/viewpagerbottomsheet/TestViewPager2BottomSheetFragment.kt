@@ -13,11 +13,12 @@ import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class MyBottomSheetFragment : BaseBottomSheetFragment() {
+class TestViewPager2BottomSheetFragment : BottomSheetDialogFragment() {
     lateinit var tabLayout: TabLayout
     lateinit var viewpager: ViewPager2
     private val titles: MutableList<String> = ArrayList()
@@ -33,16 +34,12 @@ class MyBottomSheetFragment : BaseBottomSheetFragment() {
     ): View? {
         val mRootView = inflater.inflate(R.layout.dialog_vp2, container, false)
         tabLayout = mRootView.findViewById(R.id.tablayout)
-        viewpager = mRootView.findViewById<ViewPager2?>(R.id.viewpager).apply {
-            isNestedScrollingEnabled = true
-        }
+        viewpager = mRootView.findViewById<ViewPager2?>(R.id.viewpager)
         for (i in 0..3) {
             titles.add("标题$i")
             val testFragment: ItemFragment = ItemFragment.newInstance()
             fragments.add(testFragment)
         }
-        // 注意要加上这句 让viewpager全部预加载
-        viewpager.offscreenPageLimit = titles.size
         viewpager.adapter = ViewPagerAdapter(childFragmentManager)
         viewpager.registerOnPageChangeCallback(changeCallback);
 
@@ -62,23 +59,8 @@ class MyBottomSheetFragment : BaseBottomSheetFragment() {
         }
         //要执行这一句才是真正将两者绑定起来
         mediator.attach()
-//        tabLayout.setupWithViewPager(viewpager)
         return mRootView
     }
-
-
-
-//    override fun setListener() {
-//        super.setListener()
-//        viewpager!!.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-//            override fun onPageScrolled(i: Int, v: Float, i1: Int) {}
-//            override fun onPageSelected(i: Int) {
-//                onPageChange(viewpager) // 不要忘了这句 用于更新viewpager的 子view
-//            }
-//
-//            override fun onPageScrollStateChanged(i: Int) {}
-//        })
-//    }
 
     private val changeCallback: OnPageChangeCallback = object : OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {

@@ -19,34 +19,39 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun show(view: View?) {
-        BottomSheetBuilder(supportFragmentManager)
-            .setFragments(vpItemFragment)
-            .setTitles(vpTitles)
-            .setPeekHeight(0.5)
-            .build()
-            .show()
+        TestViewPager2BottomSheetFragment().show(
+            supportFragmentManager,
+            "TestViewPager2BottomSheetFragment"
+        )
     }
 
     fun show2(view: View?) {
-
-        VPBSBuilder.with(this)
-            .setTitles(vpTitles)
-            .setFragments(vpItemFragment)
-            .setPeekHeight(0.7)
-            .show()
+        TestViewPagerBottomSheetFragment().show(
+            supportFragmentManager,
+            "TestViewPagerBottomSheetFragment"
+        )
     }
 
     fun show3(view: View?) {
-        VP2DialogFragment().apply {
-            fragments = vpItemFragment
-            titles = vpTitles
-        }.show(supportFragmentManager, "VPDialogFragment")
+        BottomSheetViewPagerFragment().apply {
+            mFragments = vpItemFragment
+            mTitles = vpTitles
+        }.show(supportFragmentManager, "BottomSheetViewPagerFragment")
     }
 
     fun show4(view: View?) {
-        VPDialogFragment().apply {
-            fragments = vpItemFragment
-            titles = vpTitles
-        }.show(supportFragmentManager, "VPDialogFragment")
+        VPBSDBuilder.with(this).apply {
+            setPeekHeight(0.6)
+            setFragments(vpItemFragment)
+            setTitles(vpTitles)
+        }.show()
+    }
+
+    fun show5(view: View?) {
+        TestBuilderFragment().apply {
+            mFragments = vpItemFragment
+            mTitles = vpTitles
+            setPeekHeight(0.7)
+        }.show(supportFragmentManager, "TestBuilderFragment")
     }
 }
